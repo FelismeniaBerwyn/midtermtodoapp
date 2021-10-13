@@ -2,21 +2,48 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  // {
+  //   path: '',
+  //   redirectTo: 'folder/Inbox',
+  //   pathMatch: 'full',
+  // },
+  // {
+  //   path: 'folder/:id',
+  //   loadChildren: () =>
+  //     import('./folder/folder.module').then((m) => m.FolderPageModule),
+  // },
   {
     path: '',
-    redirectTo: 'folder/Inbox',
-    pathMatch: 'full'
+    loadChildren: () =>
+      import('./components/login/login.module').then((m) => m.LoginPageModule),
   },
   {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  }
+    path: 'signup',
+    loadChildren: () =>
+      import('./components/signup/signup.module').then(
+        (m) => m.SignupPageModule
+      ),
+  },
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./components/about/about.module').then((m) => m.AboutPageModule),
+  },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./components/home/home.module').then((m) => m.HomePageModule),
+  },
+  {
+    path: 'create',
+    loadChildren: () => import('./components/create/create.module').then( m => m.CreatePageModule)
+  },
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

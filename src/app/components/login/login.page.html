@@ -1,0 +1,25 @@
+<ion-content>
+  <div class="input__container">
+    <div class="header__login">
+      <ion-text color="secondary"> LOGIN </ion-text>
+    </div>
+    <form>
+      <ion-item>
+        <ion-label color="tertiary" position="floating"> username </ion-label>
+        <ion-input text="text" name="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="tertiary" position="floating"> password </ion-label>
+        <ion-input text="text" name="username"></ion-input>
+      </ion-item>
+      <ion-button color="secondary">LOGIN</ion-button>
+
+      <div class="btn__group">
+        <ion-label
+          >Don't have an account?
+          <a [routerLink]="['/signup']">Register!</a></ion-label
+        >
+      </div>
+    </form>
+  </div>
+</ion-content>
