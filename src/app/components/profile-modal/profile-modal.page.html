@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>EDIT PROFILE</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-label>close</ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="input__container">
+    <form [formGroup]="profileForm">
+      <ion-item>
+        <ion-label position="floating"> Firstname </ion-label>
+        <ion-input
+          text="text"
+          name="firstname"
+          formControlName="firstname"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating"> Lastname </ion-label>
+        <ion-input
+          text="text"
+          name="lastname"
+          formControlName="lastname"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-textarea
+          rows="6"
+          cols="20"
+          formControlName="description"
+        ></ion-textarea>
+      </ion-item>
+      <ion-button expand="full" (click)="updateProfile($event)"
+        >UPDATE</ion-button
+      >
+    </form>
+  </div>
+</ion-content>

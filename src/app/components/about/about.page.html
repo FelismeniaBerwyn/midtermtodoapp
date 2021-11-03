@@ -4,6 +4,11 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>About</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="edit()">
+        <ion-label>edit</ion-label>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -11,10 +16,10 @@
   <div class="header__container">
     <ion-avatar class="avatar">
       <img
-        src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+        src="https://cdn.dribbble.com/users/1040983/screenshots/5630845/media/e95768b82810699dfd54512ff570954a.png?compress=1&resize=400x300"
       />
     </ion-avatar>
-    <ion-text> Berwyn Felismenia </ion-text>
+    <ion-text> {{firstname | uppercase}} {{lastname | uppercase}} </ion-text>
   </div>
 
   <div class="stats__container">
@@ -36,13 +41,7 @@
 
   <div class="about__container">
     <ion-label>ABOUT ME</ion-label>
-    <ion-text>
-      I am a BSIT student at Gordon College. My favorite subjects are software
-      development related and the reason why i am passionate about this is
-      because of the technology we have today and because i consider programming
-      as an art in which i can express my creativity and i also like to learn
-      new technology by experimenting by myself.</ion-text
-    >
+    <ion-text> {{description}}</ion-text>
   </div>
 
   <ion-list class="other__content">

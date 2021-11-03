@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
 import { IonicModule } from '@ionic/angular';
-import { LoginPageRoutingModule } from './login-routing.module';
-import { LoginPage } from './login.page';
+
+import { ProfileModalPageRoutingModule } from './profile-modal-routing.module';
+
+import { ProfileModalPage } from './profile-modal.page';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -11,9 +14,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule,
+    ProfileModalPageRoutingModule,
     ReactiveFormsModule,
   ],
-  declarations: [LoginPage],
+  declarations: [ProfileModalPage],
 })
-export class LoginPageModule {}
+export class ProfileModalPageModule {}

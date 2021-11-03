@@ -38,6 +38,10 @@ const routes: Routes = [
     path: 'create',
     loadChildren: () => import('./components/create/create.module').then( m => m.CreatePageModule)
   },
+  {
+    path: 'profile-modal',
+    loadChildren: () => import('./components/profile-modal/profile-modal.module').then( m => m.ProfileModalPageModule)
+  },
 ];
 
 @NgModule({
