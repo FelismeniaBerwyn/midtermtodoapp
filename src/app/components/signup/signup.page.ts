@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UiService } from 'src/app/services/ui.service';
+import { SignupService } from 'src/app/services/signup.service';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +16,9 @@ export class SignupPage implements OnInit {
   constructor(
     public menuCtrl: MenuController,
     private formGroup: FormBuilder,
-    private router: Router
+    private router: Router,
+    private _uiService: UiService,
+    private _signupService: SignupService
   ) {}
 
   ionViewWillEnter() {
@@ -32,10 +36,20 @@ export class SignupPage implements OnInit {
 
   register() {
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
-      this.router.navigate(['/home']);
+      this._signupService
+        .signupRequest(this.registerForm.value)
+        .subscribe((data: any) => {
+          console.log(data);
+          if (data.data) {
+            this._uiService.presentToast('Signup Successfully');
+            this.router.navigate(['/home']);
+            localStorage.setItem('user', JSON.stringify(data.data));
+          } else if (data.error) {
+            this._uiService.presentToast(data.error);
+          }
+        });
     } else {
-      console.log('try again!');
+      this._uiService.presentToast('Please fill in the required fields');
     }
   }
 }

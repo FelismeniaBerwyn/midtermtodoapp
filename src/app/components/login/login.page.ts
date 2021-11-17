@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login.service';
+import { UiService } from 'src/app/services/ui.service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,9 @@ export class LoginPage implements OnInit {
   constructor(
     public menuCtrl: MenuController,
     private formGroup: FormBuilder,
-    private router: Router
+    private router: Router,
+    private _loginService: LoginService,
+    private _uiService: UiService
   ) {}
 
   ionViewWillEnter() {
@@ -30,16 +34,20 @@ export class LoginPage implements OnInit {
 
   login() {
     if (this.credentialForm.valid) {
-      if (
-        this.credentialForm.get('username').value === 'berwyn' &&
-        this.credentialForm.get('password').value === 'qwe'
-      ) {
-        this.router.navigate(['/home']);
-      } else {
-        console.log('try again!');
-      }
+      this._loginService
+        .loginRequest(this.credentialForm.value)
+        .subscribe((data: any) => {
+          console.log(data);
+          if (data.data) {
+            this._uiService.presentToast('Login Successfully');
+            this.router.navigate(['/home']);
+            localStorage.setItem('user', JSON.stringify(data.data));
+          } else if (data.error) {
+            this._uiService.presentToast(data.error);
+          }
+        });
     } else {
-      console.log('try again!');
+      this._uiService.presentToast('Please fill in the required fields');
     }
   }
 }

@@ -20,6 +20,7 @@
           formControlName="firstname"
         ></ion-input>
       </ion-item>
+
       <ion-item>
         <ion-label position="floating"> Lastname </ion-label>
         <ion-input
@@ -28,6 +29,16 @@
           formControlName="lastname"
         ></ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-label position="floating"> username </ion-label>
+        <ion-input
+          text="text"
+          name="username"
+          formControlName="username"
+        ></ion-input>
+      </ion-item>
+
       <ion-item>
         <ion-label position="floating">Description</ion-label>
         <ion-textarea
@@ -36,8 +47,20 @@
           formControlName="description"
         ></ion-textarea>
       </ion-item>
+
+      <ion-item>
+        <ion-label position="floating"> Password </ion-label>
+        <ion-input
+          text="text"
+          name="password"
+          formControlName="password"
+        ></ion-input>
+      </ion-item>
       <ion-button expand="full" (click)="updateProfile($event)"
         >UPDATE</ion-button
+      >
+      <ion-button expand="full" (click)="updateProfile($event)"
+        >Deactivate Account</ion-button
       >
     </form>
   </div>

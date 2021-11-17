@@ -13,11 +13,11 @@
       <ion-label>BEFORE I TURN 30</ion-label>
       <ion-button color="primary" [routerLink]="['/create']">Insert</ion-button>
     </ion-list-header>
-    <ion-item lines="none">
+    <ion-item lines="none" *ngFor="let todo of todoItem">
       <ion-checkbox slot="start" color="primary"></ion-checkbox>
-      <ion-label color="primary"> Go camping </ion-label>
+      <ion-label color="primary"> {{todo.title}} </ion-label>
     </ion-item>
-    <ion-item lines="none">
+    <!-- <ion-item lines="none">
       <ion-checkbox slot="start" color="primary"></ion-checkbox>
       <ion-label color="primary"> Learn to speak another language. </ion-label>
     </ion-item>
@@ -40,6 +40,6 @@
     <ion-item lines="none">
       <ion-checkbox slot="start" color="primary"></ion-checkbox>
       <ion-label color="primary"> Take a roadtrip </ion-label>
-    </ion-item>
+    </ion-item> -->
   </ion-list>
 </ion-content>
