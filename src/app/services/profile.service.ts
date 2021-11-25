@@ -13,4 +13,8 @@ export class ProfileService {
   updateProfileRequest(data) {
     return this.http.put(this._url + 'updateUser', data);
   }
+
+  deactivateAcc(data) {
+    return this.http.delete(this._url + 'deactivate', data);
+  }
 }

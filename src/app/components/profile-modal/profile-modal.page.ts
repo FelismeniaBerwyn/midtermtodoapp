@@ -55,4 +55,12 @@ export class ProfileModalPage implements OnInit {
         }
       });
   }
+
+  deactivateAcc() {
+    this._profileService
+      .deactivateAcc(this.profileForm.get('id').value)
+      .subscribe((res) => {
+        this._uiService.presentToast('Deactivate Success!');
+      });
+  }
 }
